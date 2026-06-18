@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Conversion {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  originalName String
+  pdfName      String
+  downloadUrl  String
+  createdAt    DateTime @default(now())
+}
