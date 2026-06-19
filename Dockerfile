@@ -12,6 +12,8 @@ RUN npm install
 
 COPY . .
 
+RUN npx prisma generate
+
 ENV PORT=5000
 EXPOSE 5000
 
