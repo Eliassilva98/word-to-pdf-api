@@ -62,6 +62,7 @@ yarn
 yarn dev
 ````
 Variáveis de ambiente
+
 PORT=5000
 
 DATABASE_URL=your_mongodb_connection_string_here
@@ -71,56 +72,32 @@ SOFFICE_PATH=your_libreoffice_path
 CORS_ORIGIN=https://seu-frontend.vercel.app
 
 Estrutura do projeto
-
+```
 src/
-
 ├── config/
-│
-
-├── prisma.js -> Conexão com MongoDB
-│   
-└── upload.js -> Configuração do Multer
-
+│   ├── prisma.js          # Conexão com MongoDB
+│   └── upload.js          # Configuração do Multer
 ├── controllers/
-│   
-└── convertController.js -> Lógica de conversão e histórico
-
+│   └── convertController.js   # Lógica de conversão e histórico
 ├── routes/
-│   
-└── convert.js -> Definição das rotas da API
+│   └── convert.js         # Definição das rotas da API
+└── server.js              # Ponto de entrada do servidor
+```
 
-└── server.js -> Ponto de entrada do servidor
+## O que este projeto demonstra
+- API REST com Node.js + Express para conversão de documentos
+- Upload e validação de arquivos com Multer
+- Processamento assíncrono com conversão via LibreOffice
+- Persistência de dados com Prisma ORM + MongoDB Atlas
+- Arquitetura organizada por camadas (config, controllers, routes)
+- Containerização com Docker para deploy em produção
+- Proteção de rotas com CORS configurado para origens específicas
 
-O que este projeto demonstra:
-
-API REST com Node.js + Express para conversão de documentos
-
-Upload e validação de arquivos com Multer
-
-Processamento assíncrono com conversão via LibreOffice
-
-Persistência de dados com Prisma ORM + MongoDB Atlas
-
-Arquitetura organizada por camadas (config, controllers, routes)
-
-Containerização com Docker para deploy em produção
-
-Proteção de rotas com CORS configurado para origens específicas
-<br>
-<br>
-<br>
-Melhorias futuras:
-
-Adicionar autenticação JWT para proteger as rotas
-
-Implementar testes automatizados (unitários e integração)
-
-Criar documentação da API com Swagger
-
-Melhorar tratamento de erros com middleware global
-
-Adicionar paginação no histórico de conversões
-
-Implementar limpeza automática de arquivos antigos
-
-Adicionar rate limiting para proteção contra abusos
+## Melhorias futuras
+- Adicionar autenticação JWT para proteger as rotas
+- Implementar testes automatizados (unitários e integração)
+- Criar documentação da API com Swagger
+- Melhorar tratamento de erros com middleware global
+- Adicionar paginação no histórico de conversões
+- Implementar limpeza automática de arquivos antigos
+- Adicionar rate limiting para proteção contra abusos
