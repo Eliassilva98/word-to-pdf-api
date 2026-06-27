@@ -22,6 +22,16 @@ Esta API recebe arquivos Word enviados pelo frontend, converte para PDF utilizan
 - **Deploy containerizado** — Dockerfile com Node.js 18 e LibreOffice instalado, pronto para deploy no Railway
 
 ---
+## Regras de negócio
+
+- **Validação de formato:** apenas arquivos .doc e .docx são aceitos. Qualquer outro formato é rejeitado antes do processamento
+- **Nomes únicos no upload:** cada arquivo recebe um identificador único (timestamp + número aleatório) para evitar sobrescrita
+- **Preservação do nome original:** o PDF gerado mantém o nome do arquivo original (ex: relatorio.docx → relatorio.pdf)
+- **Criação automática de diretório:** a pasta de uploads é criada automaticamente se não existir
+- **Registro obrigatório:** toda conversão bem-sucedida é registrada no MongoDB com nome original, nome do PDF, link de download e data
+- **Histórico limitado:** as últimas 50 conversões são retornadas, ordenadas da mais recente para a mais antiga
+- **Link de download dinâmico:** a URL é gerada com o domínio do servidor no momento da conversão
+- **CORS restrito:** apenas origens autorizadas (frontend em produção e localhost) podem consumir a API
 
 ## Endpoints
 
