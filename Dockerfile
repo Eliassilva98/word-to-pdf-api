@@ -7,8 +7,8 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
 COPY . .
 
@@ -17,4 +17,4 @@ RUN npx prisma generate
 ENV PORT=5000
 EXPOSE 5000
 
-CMD ["sh", "-c", "npx prisma db push && npm start"]
+CMD ["sh", "-c", "npx prisma db push && yarn start"]
