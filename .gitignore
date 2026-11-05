@@ -5,3 +5,8 @@ node_modules
 /src/generated/prisma
 
 /src/generated/prisma
+
+# Arquivos enviados/convertidos pelos usuarios (podem conter dados sensiveis)
+/uploads/
+/src/uploads/*
+!/src/uploads/.gitkeep
