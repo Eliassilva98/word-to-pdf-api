@@ -17,4 +17,4 @@ RUN npx prisma generate
 ENV PORT=5000
 EXPOSE 5000
 
-CMD ["npm", "start"]
+CMD ["sh", "-c", "npx prisma db push && npm start"]
